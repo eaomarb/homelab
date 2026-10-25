@@ -8,7 +8,7 @@ My personal files are in a gocryptfs volume, so they are encrypted on disk, and 
 
 Only the WireGuard port is open to the internet. Once connected to the VPN I can reach my files and the rest of the local network. I can also send all my internet traffic through home.
 
-The firewall is an iptables script ([iptables.sh](scripts/network/iptables.sh)) that drops everything by default and whitelists a handful of devices, two on the LAN plus my WireGuard clients. One of those clients is restricted to two services. Docker bypasses the INPUT chain for published ports, so the same whitelist is repeated in DOCKER-USER. SSH is only reachable from those devices too, and it needs a key and has fail2ban on top.
+The firewall is an [iptables script](scripts/network/iptables.sh) that drops everything by default and whitelists a handful of devices, two on the LAN plus my WireGuard clients. One of those clients is restricted to two services. Docker bypasses the INPUT chain for published ports, so the same whitelist is repeated in DOCKER-USER. SSH is only reachable from those devices too, and it needs a key and has fail2ban on top.
 
 Pi-hole is my DNS server and blocks ads. My devices keep using it over WireGuard. Nginx Proxy Manager takes care of HTTPS, with a DDNS subdomain.
 
